@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess the Number Game</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #333;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+    h1 {
+        margin-top: 20px;
+        font-size: 36px;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    p {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #guessField {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #555;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    button:hover {
+        background-color: #777;
+    }
+    #message {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="number" id="guessField">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <div id="message"></div>
+
+    <script>
+        // Set the correct number
+        const randomNumber = 63;
+
+        let guesses = document.getElementById('guessField');
+        let message = document.getElementById('message');
+
+        function checkGuess() {
+    let userGuess = parseInt(guesses.value);
+
+    if (userGuess === 12) {
+        alert('Well done Emily❤️');
+    } else if (userGuess === randomNumber) {
+        message.textContent = `Congratulations! You guessed the correct number: ${randomNumber}`;
+        message.style.color = '#2ecc71';
+        guesses.disabled = true;
+        // Redirect to a YouTube video
+        window.location.href = 'https://pelewele.github.io/Seddy/Sedinam.html'; // Example video
+    } else if (userGuess < randomNumber) {
+        message.textContent = 'Too low! Try a higher number.';
+        message.style.color = '#e74c3c';
+    } else {
+        message.textContent = 'Too high! Try a lower number.';
+        message.style.color = '#e74c3c';
+    }
+
+    guesses.value = '';
+    guesses.focus();
+
+        }
+    </script>
+</body>
+</html>
